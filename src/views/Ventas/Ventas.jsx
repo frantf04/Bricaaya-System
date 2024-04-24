@@ -356,7 +356,6 @@ function Venta() {
       </Table>
       {formActive && (
         <Form
-          style={{ overflow: "visible" }}
           title="Nueva Venta"
           onSubmit={newSale}
           setFormActive={setFormActive}
@@ -572,7 +571,6 @@ function Venta() {
       )}
       {showAbonarForm && (
         <Form
-          style={{ overflow: "visible" }}
           title="Abonar a la deuda"
           setFormActive={setShowAbonarForm}
           onSubmit={(e) => {

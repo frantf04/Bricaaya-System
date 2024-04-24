@@ -157,7 +157,6 @@ function ProduccionEnvasar() {
         })
         .then((res) => {
           setRefresh(!refresh);
-          setFinishedFormActive(false);
           setConfirmModalActive(false);
 
           if (!queryCheck) {
@@ -363,33 +362,6 @@ function ProduccionEnvasar() {
             name="inQuanty"
           />
         </Form>
-      )}
-      {finishedFormActive && (
-        <Form
-          onSubmit={endTask}
-          title="Cantidad Resultante"
-          setFormActive={setFinishedFormActive}
-        >
-          <Input
-            onChange={({ target }) => setEndAmount(target.value)}
-            value={endAmount}
-            type="number"
-            placeholder="Introduzca la cantidad final (lb)"
-          />
-        </Form>
-      )}
-      {error && <Alert type="error" text={error} />}
-      {queryCheck && <Alert text={queryCheck} />}
-      {cancelModalActive && (
-        <ErrorModal
-          funcCancel={() => setCancelModalActive(false)}
-          funcConfirm={cancelTask}
-          btnCancelDisplay={true}
-          btnConfirmDisplay={true}
-          title="Cancelar Proceso."
-          detail="Está seguro de cancelar este proceso?"
-          cause="Esta acción no se puede deshacer."
-        />
       )}
     </>
   );
