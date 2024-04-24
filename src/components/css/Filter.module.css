@@ -1,0 +1,157 @@
+.container {
+  width: 100%;
+  max-height: 60px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+}
+
+.selectContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.select {
+  padding: .5rem 1rem;
+  border: 1px solid #ccc; 
+  border-radius: 6px;
+}
+
+
+
+.dateContainer {
+  width: 150px;
+  height: 37px;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: flex-start;
+  position: relative;
+  z-index: 100;
+  gap: 5px;
+  cursor: pointer;
+  border: 1px solid #ccc; 
+  border-radius: 6px;
+  
+}
+
+
+.dateContainer .tiltle {
+  width: 100%;
+  padding: .4rem 0;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.dateContainer:hover .box{
+  display: flex;
+}
+.dateContainer:hover {
+  justify-content: start;
+  padding: 0;
+}
+
+.dateContainer:hover {
+  background: var(--blue);
+  
+}
+.dateContainer:hover .tiltle {
+  color: #fff;
+}
+
+.dateContainer .box {
+  width: 225px;
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 6px;
+  padding: .5rem;
+  
+  box-shadow: 0 0 10px #ccc;
+  gap: 10px;
+  justify-self: start;
+
+
+}
+
+
+
+
+.box .date {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  gap: .3rem;
+}
+
+
+
+.date .row {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.date .row input {
+  width: 100%;
+  border-radius: 6px;
+  padding: 8px 2px;
+  outline: none;
+  border: .5px solid #ccc;
+  box-shadow: 0 0 10px #ccc;
+
+}
+
+.optionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.optionContainer div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: .3rem 0;
+  cursor: pointer;
+}
+
+.optionContainer div:hover {
+  background: var(--blue);
+  color: #fff;
+}
+
+.search{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 0 .5rem;
+}
+
+.search span{
+  color: #555;
+}
+
+.search input{
+  padding: 10px 0;
+  border: none;
+  outline: none;
+}

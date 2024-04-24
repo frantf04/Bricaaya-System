@@ -1,0 +1,19 @@
+.card{
+  width: calc(100% / 3);
+  border-top: solid 5px var(--blue);
+  min-height: 20vh;
+  margin: 1rem;
+  box-shadow:  0 0 10px #ccc;
+  border-radius: 5px;
+  overflow-x: none;
+  overflow-y: auto;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: max(12px, 1.2vw);
+  text-wrap: nowrap;
+  max-height: 250px;
+}
+.card
+.card:active{
+  transform: scale(.9);
+}

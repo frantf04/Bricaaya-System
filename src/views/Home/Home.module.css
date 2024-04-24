@@ -1,0 +1,31 @@
+.home{
+  width: 82%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+h1{
+  margin: 1rem 0;
+  text-align: center;
+}
+.card_container{
+  display: flex;
+  justify-content: center;
+  max-height: 30vh;
+  width: 100%;
+  /* border: 1px solid; */
+  
+}
+.line{
+  font-size: max(12px, .8vw);
+
+}
+
+@media (max-width: 425px) {
+  .home{
+    width: 75%;
+  }
+}

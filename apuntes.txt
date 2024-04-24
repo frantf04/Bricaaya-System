@@ -1,0 +1,36 @@
+      // for (const ingredient of finishedProductFound.recipe) {
+      //   const processedProductFound = await productOnProcess.findOne({
+      //     code: ingredient.code,
+      //   });
+
+      //   if (
+      //     processedProductFound.stock <
+      //     ingredient.quanty * Number(inQuanty)
+      //   ) {
+      //     productosFaltante.push({
+      //       name: processedProductFound.name,
+      //       necessary_amount: `${
+      //         ingredient.quanty * Number(inQuanty) - processedProductFound.stock
+      //       } LB`,
+      //     });
+      //   }
+
+      // }
+      // for (const supplie of finishedProductFound.necessary_packaging) {
+      //   const suppliesFound = await supplies.findOne({
+      //     code: supplie.code,
+      //   });
+
+      //   if (
+      //     suppliesFound.stock <
+      //     supplie.quanty * Number(inQuanty)
+      //   ) {
+      //     productosFaltante.push({
+      //       name: suppliesFound.name,
+      //       necessary_amount: `${
+      //         supplie.quanty * Number(inQuanty) - suppliesFound.stock
+      //       } LB`,
+      //     });
+      //   }
+
+      // }

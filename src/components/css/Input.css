@@ -1,0 +1,19 @@
+.check {
+  display:  flex;
+  /* height: 40px; */
+  border: 1px solid;
+  gap: 5px;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(#f2f2f2);
+  color: #888;
+  padding: .5rem;
+  border-radius: 6px;
+}
+.check input{
+  width: 20px;
+  height: 20px;
+}
+.check label{
+
+}

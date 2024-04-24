@@ -1,0 +1,39 @@
+.container {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  /* flex-wrap: wrap; */
+  gap: 10px;
+  padding: 1.5rem 1rem;
+}
+
+.lineal,
+.pie {
+  width: 100%;
+  height: 100%;
+  font-size: max(12px, .8vw) !important;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.pie{
+  font-size: 12px !important;
+
+}
+
+@media (max-height: 575px) {
+
+  .lineal,
+  .pie {
+    height: 40vh;
+
+  }
+}
+
+@media (max-width: 1070px) {
+
+  .container {
+    flex-wrap: wrap;
+    overflow: auto;
+    padding-bottom: 50px;
+  }
+}

@@ -1,0 +1,219 @@
+*{
+  box-sizing: border-box;
+}
+.billContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #00000050;
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.billContainer .header{
+  width: 100% !important;
+  height: 50px !important;
+  background: var(--blue) !important;
+}
+.billContainer .bill{
+  width: 50%;
+  min-height: 500px;
+  background: #fff;
+  position: relative;
+}
+.billContainer .bill .row{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+
+.productsDetails{
+  width: 100%;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+
+.row.th span,
+.productsDetails .row span{
+  width: 100% !important;
+  text-align: left !important;
+}
+
+.productsDetails .row .price,
+.row.th .price,
+.row.th .quanty,
+.productsDetails .row .quanty{
+  text-align: center !important;
+}
+.row.th .value,
+.productsDetails .row .value{
+  
+  text-align: right !important;
+}
+
+.row.th.total span{
+ width: initial !important;
+}
+
+ .row h2{
+  font-size: 3rem ;
+}
+ .logo img{
+  width: 100px ;
+}
+
+.company{
+  width: 100%;
+  text-align: center;
+  font-size: 1.6rem ;
+  font-weight: 600 ;
+  justify-self: center;
+  border-bottom: 1px solid #ccc;
+}
+.company span{
+  text-align: center;
+  width: 100%;
+  font-size: 1.2rem;
+  color: #333;
+}
+ .id span{
+  font-size: 13px;
+}
+.clientName{
+  font-weight: 300;
+}
+
+.row.th{
+  border-top: 1px solid #ccc ;
+  border-bottom: 1px solid #ccc ;
+  font-size: 1.2rem !important;
+  font-weight: bold ;
+}
+
+ .controlContainer{
+  width: 50%;
+  display: flex;
+  background: #fff;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.controlContainer div {
+  display: flex;
+  gap: 10px;
+}
+.changeDataControls{
+  display: flex;
+  padding: 0 1rem 0 0;
+  /* gap: 20px; */
+  background: #fff;
+  border-radius: 6px;
+  margin: 5px 0;
+  overflow: hidden;
+}
+
+.changeDataControls span{
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 1rem 4rem;
+  border-bottom: 2px solid transparent;
+  font-weight: bold;
+
+}
+
+.changeDataControls span:hover{
+  background: #f3f5f7;
+}
+.changeDataControls span.active{
+  border-bottom: 2px solid !important;
+  background: #f3f5f7 !important;
+}
+
+@media print {
+  .billContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #00000050;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .header{
+    width: 100% !important;
+    height: 50px !important;
+    background: var(--blue) !important;
+  }
+   .bill{
+    width: 100% !important;
+    min-height: 500px;
+    background: #fff;
+    position: relative;
+  }
+   .row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  
+  .productsDetails{
+    max-height: 250px;
+    overflow-y: auto;
+  }
+  
+  
+  
+  .bill .row h2{
+    font-size: 3rem ;
+  }
+  .bill .logo img{
+    width: 100px ;
+  }
+  
+  .row.company{
+    width: 100%;
+    text-align: center;
+    font-size: 1.6rem ;
+    font-weight: 600 ;
+    justify-self: center;
+  }
+  .row.row.company span{
+    text-align: center;
+    width: 100%;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  .row .id span{
+    font-size: 13px;
+  }
+  .row .clientName{
+    font-weight: 300;
+  }
+  
+  .row.th{
+    border-top: 1px solid #ccc ;
+    border-bottom: 1px solid #ccc ;
+    font-size: 1.2rem !important;
+    font-weight: bold ;
+  }
+  
+  .billContainer .controlContainer{
+    width: 50%;
+    display: flex;
+    background: #fff;
+    justify-content: end;
+    padding: 1rem;
+    gap: 10px;
+  }
+}

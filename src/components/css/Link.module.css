@@ -1,0 +1,44 @@
+.link{
+  position: relative;
+  width: 100%;
+  padding: .3rem .6rem;
+  border-radius: 5px;
+}
+.link {
+  color: hsl(210, 7%, 46%);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  /* overflow: hidden; */
+  font-size: max(12px, .87vw);
+  /* border: 1px solid; */
+}
+
+.link.active,
+.link:hover {
+  background: var(--blue);
+  text-overflow: ellipsis;
+  color: #fff;
+}
+
+
+.link span{
+  width: 100%;
+  flex-direction: column;
+  gap: 5px 0;
+  text-wrap: nowrap;
+  background: #fff !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: none;
+
+}
+
+
+@media (max-width: 590px) {
+  .link{
+    /* overflow: visible; */
+  }
+}

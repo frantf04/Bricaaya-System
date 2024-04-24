@@ -1,0 +1,92 @@
+.gameRunning{
+  position: absolute;
+  width: 100%;
+  height: calc(100vh);
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(43, 117, 237, .5);
+  /* opacity: 1;
+  transform: scale(0); */
+  transition: transform .1s linear;
+}
+
+.gameRunning span{
+  width: 400px;
+  min-height: 250px;
+  border-top-left-radius: 25px ;
+  border-bottom-right-radius: 25px ;
+  background: #ffe;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 1.5rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: transform .3s linear;
+  z-index: 1000;
+  text-align: center;
+  overflow: hidden !important;
+  animation: opacity .2s linear forwards;
+
+
+}
+
+.gameRunning span .title{
+  width: 100%;
+  border-top-left-radius: 25px ;
+  padding: .5rem 1rem;
+  color: #fff;
+  background: var(--blue);
+  overflow: hidden;
+  text-align: left;
+}
+.gameRunning span .detail{
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.btnContainer{
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden !important;
+  /* justify-content: space-between; */
+}
+
+.btnContainer .btnCancel,
+.btnContainer .btnConfirm{
+  min-width: 100px;
+
+  padding: .5rem 1rem;
+  background: rgb(39, 180, 39);
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border-top-left-radius: 8px;
+
+
+}
+.btnContainer .btnConfirm{
+  justify-self: flex-end;
+
+}
+.btnContainer .btnCancel{
+  background: rgba(237, 43, 43, 0.934);
+  border-radius: 0;
+  border-top-right-radius: 8px;
+  justify-self: flex-start;
+
+}
+
+
+@keyframes opacity {
+  to{
+    opacity: 1;
+    transform: scale(1);
+  }
+}

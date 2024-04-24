@@ -1,0 +1,76 @@
+.container {
+  width: 80%;
+  height: 100%;
+  position: relative;
+  margin: 10px;
+}
+
+.tableContainer {
+  width: 100%;
+  height: 85vh;
+  overflow-y: auto;
+  padding-bottom: 50px;
+  border-radius: 8px;
+}
+.container header h1{
+  font-size: max(1rem, 1.5vw);
+}
+.container table {
+  width: 100%;
+  position: relative;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 0 5px #ccc;
+  border-radius: 8px;
+}
+
+thead {
+  position: sticky;
+  top: 0; /* Asegura que el encabezado se quede pegado en la parte superior */
+  background-color: #ffffff; /* Agrega un color de fondo para distinguirlo */
+  z-index: 1; /* Asegura que el encabezado esté por encima del contenido desplazado */
+}
+
+.col ,
+td,
+th{
+  border-bottom: 1px solid #ccc;
+  max-height: 100px;
+  padding: 15px 3px;
+  text-align: center;
+  max-width: 200px;
+  font-size: max(12px, 1vw);
+  
+}
+.col .spinner{
+  animation: rotate 1s linear infinite;
+}
+
+
+
+tr{
+  opacity: 0;
+  animation: opacity .3s linear forwards;
+}
+/* tr:nth-child(odd) td.col{
+  background: transparent;
+} */
+
+tbody tr:last-child .col{
+  border-bottom: none !important;
+}
+
+@keyframes opacity {
+  form{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  to{
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,36 @@
+.Alert{
+  max-width: 300px;
+  min-height: 50px;
+  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.10em;
+  background-color: #d7e9d7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 16px;
+  color: rgb(30, 70, 32);
+  border-radius: 5px;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  align-items: center;
+  animation: appear 2.5s linear forwards;
+  z-index: 1000;
+}
+
+@keyframes appear {
+  0%{
+    opacity: 0;
+  }
+  25%, 90%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
