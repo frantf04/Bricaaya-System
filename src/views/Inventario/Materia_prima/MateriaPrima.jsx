@@ -59,7 +59,7 @@ function MateriaPrima() {
         name,
       };
       axios
-        .post(`${process.env.REACT_APP_API_URL}api/register/rawmaterial`, data, {
+        .post(`${process.env.REACT_APP_API_URL}/api/register/rawmaterial`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
