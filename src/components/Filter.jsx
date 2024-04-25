@@ -23,7 +23,7 @@ function Filter({ date, fechaInicio, fechaFin, setFechaInicio, setFechaFin }) {
 
     if (sortBy !== "") {
       filter.sort((a, b) => {
-        if(!a[sortBy] || !b[sortBy]) return
+        if((!a[sortBy] && Number(a[sortBy]) !== 0) || (!b[sortBy]) && Number(b[sortBy]) !== 0) return
         if (typeof a[sortBy] === "number" && typeof b[sortBy] === "number") {
           return up ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy];
         } else {
