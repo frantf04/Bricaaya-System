@@ -43,8 +43,7 @@ function ProcessedProduct() {
     name: "Nombre",
     cost: "Costo",
     stock: "Stock",
-    totalInQuanty: 'Entrada total de producto',
-    createdAt: "Fecha de registro",
+    total: 'Total',
     updatedAt: "Ultima Modificación",
   };
   return (
