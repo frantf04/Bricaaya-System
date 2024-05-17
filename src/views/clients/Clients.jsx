@@ -24,14 +24,14 @@ function Cliente() {
   useEffect(() => {
     try {
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/dashboard/clients`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/clients`, {
           headers: {
             Authorization: `Bearer ${token} `,
           },
         })
         .then((res) => {
           if (res.data.length === 0) return;
-          setClients(res?.data);
+          setClients(res?.data.data);
         })
         .catch((error) => {
           console.log(error);
@@ -59,7 +59,7 @@ function Cliente() {
           "http://" + document.location.host + "/login");
       const data = formData
       axios
-        .post(`${process.env.REACT_APP_API_URL}/api/register/client`, data, {
+        .post(`${process.env.REACT_APP_API_URL}/api/clients`, data, {
           headers: {
             Authorization: `Bearer ${token}`
           }

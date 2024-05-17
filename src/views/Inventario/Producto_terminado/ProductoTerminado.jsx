@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import Table from "../../../components/Table";
-import Alert from "../../../components/Alert";
 import axios from "axios";
 import Form from "../../../components/Form/Form";
 import Input from "../../../components/Form/Input";
@@ -16,11 +15,8 @@ function FinishesProduct() {
   const [supplies, setSupplies] = useState([]);
   const [rawMaterial, setRawMaterial] = useState([]);
   const [refresh, setRefresh] = useState(false);
-  // Estado para almacenar los valores de los inputs
   const [recipe, setRecipe] = useState([]);
   const [_package, set_package] = useState([]);
-  const [error, setError] = useState(false);
-  const [queryCheck, setQueryCheck] = useState(false);
   const [formData, setFormData] = useState({
     code: "",
     name: "",
@@ -69,13 +65,13 @@ function FinishesProduct() {
   useEffect(() => {
     if (token) {
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/dashboard/finishedproduct`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/finishedproducts`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          setFinishedProduct(response.data);
+          setFinishedProduct(response.data.data);
         })
         .catch((error) => {
           console.error("Error de autenticación", error);
@@ -86,13 +82,13 @@ function FinishesProduct() {
       /*                                      -                                     */
       /* -------------------------------------------------------------------------- */
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/dashboard/rawmaterial`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/rawmaterials`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          setRawMaterial(response.data);
+          setRawMaterial(response.data.data);
         })
         .catch((error) => {
           console.error("Error de autenticación", error);
@@ -109,7 +105,7 @@ function FinishesProduct() {
           },
         })
         .then((response) => {
-          setSupplies(response.data);
+          setSupplies(response.data.data);
         })
         .catch((error) => {
           console.error("Error de autenticación", error);
@@ -135,7 +131,7 @@ function FinishesProduct() {
         _package
       };
       axios
-        .post(`${process.env.REACT_APP_API_URL}/api/register/finishedproduct`, data, {
+        .post(`${process.env.REACT_APP_API_URL}/api/finishedproducts`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

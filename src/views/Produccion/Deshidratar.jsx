@@ -38,13 +38,13 @@ function ProduccionDeshidratar() {
   useEffect(() => {
     if (token) {
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/dashboard/task/dehydrate`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/tasks/?type=dehydrate`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          setPurchase(response.data);
+          setPurchase(response.data.data);
         })
         .catch((error) => {
           console.error("Error de autenticación", error);
@@ -55,13 +55,13 @@ function ProduccionDeshidratar() {
       /*                                      -                                     */
       /* -------------------------------------------------------------------------- */
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/dashboard/rawmaterial`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/rawmaterials`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          setRawMaterial(response.data);
+          setRawMaterial(response.data.data);
           setFormData({
             code: "",
             inQuanty: "",
@@ -98,7 +98,7 @@ function ProduccionDeshidratar() {
           "http://" + document.location.host + "/login");
       const data = formData;
       axios
-        .post(`${process.env.REACT_APP_API_URL}/api/register/task`, data, {
+        .post(`${process.env.REACT_APP_API_URL}/api/tasks`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -139,11 +139,10 @@ function ProduccionDeshidratar() {
         return (document.location.href =
           "http://" + document.location.host + "/login");
       const data = {
-        id,
         outQuanty
       };
       axios
-        .post(`${process.env.REACT_APP_API_URL}/api/register/endprocess`, data, {
+        .patch(`${process.env.REACT_APP_API_URL}/api/tasks/finish/${id}`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -174,11 +173,8 @@ function ProduccionDeshidratar() {
       if (!token)
         return (document.location.href =
           "http://" + document.location.host + "/login");
-      const data = {
-        id,
-      };
       axios
-        .post(`${process.env.REACT_APP_API_URL}/api/register/cancelprocess`, data, {
+        .delete(`${process.env.REACT_APP_API_URL}/api/tasks/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

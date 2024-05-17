@@ -97,7 +97,7 @@ function Table({
                     No se encontraron datos
                   </td>
                 )}
-                {action && data && <th className={styles.col}>Acción</th>}
+                {action && <th className={styles.col}>{(data.length > 0)? "Acción": null}</th>}
               </tr>
             </thead>
             <tbody>
@@ -189,7 +189,7 @@ function Table({
                           </td>
                         );
                       }
-                      if ((typeof product[key] === "number") && (key !== 'amount' && key !== 'stock' && !key.toLowerCase().includes('quanty'))) {
+                      if ((typeof product[key] === "number") && (key !== 'amount' && key !== 'stock' && key !== 'lotNumber' && !key.toLowerCase().includes('quanty'))) {
                         return (
                           <td key={i} className={styles.col}>
                             {product[key].toLocaleString("es-DO", {
@@ -202,7 +202,7 @@ function Table({
                       if (key === "amount" || key === "stock") {
                         return (
                           <td key={i} className={styles.col}>
-                            {product[key].toLocaleString("es-DO")}
+                            {product[key]}
                           </td>
                         );
                       }

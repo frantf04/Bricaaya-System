@@ -24,7 +24,7 @@ import Button from "../../components/Button";
 export const PurchaseContext = createContext();
 const animatedComponents = makeAnimated();
 function Venta() {
-  const [sales, setSales] = useState([{}]);
+  const [sales, setSales] = useState([]);
   const [finishedProducts, setFinishedProducts] = useState([]);
   const [clients, setClients] = useState([]);
   const [formActive, setFormActive] = useState(false);
@@ -44,13 +44,13 @@ function Venta() {
   useEffect(() => {
     if (token) {
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/dashboard/sales`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/sales`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          setSales(response.data);
+          setSales(response.data.data);
         })
         .catch((error) => {
           console.error("Error de autenticación", error);
@@ -61,13 +61,13 @@ function Venta() {
       /*                                      -                                     */
       /* -------------------------------------------------------------------------- */
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/dashboard/finishedproduct`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/finishedproducts`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          setFinishedProducts(response.data);
+          setFinishedProducts(response.data.data);
         })
         .catch((error) => {
           console.error("Error de autenticación", error);
@@ -76,13 +76,13 @@ function Venta() {
         });
 
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/dashboard/clients`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/clients`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          setClients(response.data);
+          setClients(response.data.data);
         })
         .catch((error) => {
           console.error("Error de autenticación", error);
@@ -138,7 +138,7 @@ function Venta() {
         status,
       };
       axios
-        .post(`${process.env.REACT_APP_API_URL}/api/register/sale`, data, {
+        .post(`${process.env.REACT_APP_API_URL}/api/sales`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -230,10 +230,10 @@ function Venta() {
      margin: 0;
     `,
   });
-  const productsOption = finishedProducts.map((product, index) => {
+  const productsOption = finishedProducts?.map((product, index) => {
     return { value: product.code, label: product.name, price: product.price };
   });
-  const clientsOption = clients.map((client, index) => {
+  const clientsOption = clients?.map((client, index) => {
     return { value: client.name, label: client.name };
   });
 

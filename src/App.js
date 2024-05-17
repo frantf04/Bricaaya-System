@@ -32,6 +32,7 @@ function App() {
   const [data, setData] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const [counter, setCounter] = useState(0);
+  const [sendingData, setSendingData] = useState(false);
   const [changePassActive, setChangePassActive] = useState(false);
   const MySwal = withReactContent(Swal);
   const currentLocation = document.location.href.includes("login");
@@ -50,14 +51,13 @@ function App() {
         preConfirm: () => {document.location.reload()},
         allowOutsideClick: false,
       });
-      document.cookie =
-        "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     }
   }, [counter]);
 
   return (
     <Context.Provider
-      value={{setChangePassActive, loader, setLoader, data, setData, refresh, setRefresh }}
+      value={{setChangePassActive, loader, setLoader, data, setData, refresh, setRefresh, sendingData, setSendingData }}
     >
       <div className="App">
         {!loader ? <Menu /> : null}

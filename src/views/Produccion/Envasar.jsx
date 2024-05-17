@@ -39,13 +39,13 @@ function ProduccionEnvasar() {
   useEffect(() => {
     if (token) {
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/dashboard/task/package`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/tasks?type=package`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          setTask(response.data);
+          setTask(response.data.data);
         })
         .catch((error) => {
           console.error("Error de autenticación", error);
@@ -56,13 +56,13 @@ function ProduccionEnvasar() {
       /*                                      -                                     */
       /* -------------------------------------------------------------------------- */
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/dashboard/finishedproduct`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/finishedproducts`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          setFinishedProduct(response.data);
+          setFinishedProduct(response.data.data);
         })
         .catch((error) => {
           console.error("Error de autenticación", error);
@@ -93,7 +93,7 @@ function ProduccionEnvasar() {
           "http://" + document.location.host + "/login");
       const data = formData;
       axios
-        .post(`${process.env.REACT_APP_API_URL}/api/register/task`, data, {
+        .post(`${process.env.REACT_APP_API_URL}/api/tasks`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -123,13 +123,15 @@ function ProduccionEnvasar() {
           );
           withReactContent(Swal).fire({
             title:
-              statusCode === 409 && productosFaltante?.length > 0 
-                ? "Material insuficiente,falta lo siguiente:"
-                : statusCode === 409 && !productosFaltante? "Hay un proceso activo de este producto"
+              // statusCode === 409 && productosFaltante?.length > 0 
+              statusCode === 409 
+                ? "Material insuficiente."
+                // : statusCode === 409 && !productosFaltante? "Hay un proceso activo de este producto"
                 : statusCode === 400
                 ? "Faltan campos requeridos!"
                 : message,
-            html: <ol>{el}</ol>,
+            // html: <ol>{el}</ol>,
+            // text: "",
             scrollbarPadding: "1px",
             icon: "error",
             confirmButtonColor: "#2169f6",
@@ -146,11 +148,10 @@ function ProduccionEnvasar() {
         return (document.location.href =
           "http://" + document.location.host + "/login");
       const data = {
-        id,
         outQuanty: endAmount,
       };
       axios
-        .post(`${process.env.REACT_APP_API_URL}/api/register/endprocess`, data, {
+        .patch(`${process.env.REACT_APP_API_URL}/api/tasks/finish/${id}`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -185,11 +186,8 @@ function ProduccionEnvasar() {
       if (!token)
         return (document.location.href =
           "http://" + document.location.host + "/login");
-      const data = {
-        id,
-      };
       axios
-        .post(`${process.env.REACT_APP_API_URL}/api/register/cancelprocess`, data, {
+        .delete(`${process.env.REACT_APP_API_URL}/api/tasks/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

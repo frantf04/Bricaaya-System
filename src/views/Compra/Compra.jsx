@@ -39,13 +39,13 @@ function Compra() {
   useEffect(() => {
     if (token) {
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/dashboard/purchase`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/purchases`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          setPurchase(response.data);
+          setPurchase(response.data.data);
         })
         .catch((error) => {
           console.error("Error de autenticación", error);
@@ -56,13 +56,13 @@ function Compra() {
       /*                                      -                                     */
       /* -------------------------------------------------------------------------- */
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/dashboard/rawmaterial`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/rawmaterials`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          setRawMaterial(response.data);
+          setRawMaterial(response.data.data);
           setFormData({
             code: "",
             category: "",
@@ -80,13 +80,13 @@ function Compra() {
         });
 
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/dashboard/supplier`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/suppliers`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          setSupplier(response.data);
+          setSupplier(response.data.data);
         })
         .catch((error) => {
           console.error("Error de autenticación", error);
@@ -113,7 +113,7 @@ function Compra() {
           "http://" + document.location.host + "/login");
       const data = formData;
       axios
-        .post(`${process.env.REACT_APP_API_URL}/api/register/purchase`, data, {
+        .post(`${process.env.REACT_APP_API_URL}/api/purchases`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

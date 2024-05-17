@@ -21,13 +21,13 @@ function MateriaPrima() {
   useEffect(() => {
     if (token) {
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/dashboard/rawmaterial`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/rawmaterials`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {
-          setRawMaterial(response.data);
+          setRawMaterial(response.data.data);
         })
         .catch((error) => {
           console.error("Error de autenticación", error);
@@ -59,7 +59,7 @@ function MateriaPrima() {
         name,
       };
       axios
-        .post(`${process.env.REACT_APP_API_URL}/api/register/rawmaterial`, data, {
+        .post(`${process.env.REACT_APP_API_URL}/api/rawmaterials`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

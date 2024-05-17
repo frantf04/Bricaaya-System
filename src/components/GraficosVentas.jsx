@@ -13,7 +13,7 @@ function GraficosVentas({ style, fechaInicio, fechaFin }) {
 
   useEffect(() => {
     if (token) {
-      if(fechaInicio === "" || fechaFin === "") return
+      if (fechaInicio === "" || fechaFin === "") return;
       axios
         .post(
           `${process.env.REACT_APP_API_URL}/api/dashboard/graficos`,
@@ -39,11 +39,15 @@ function GraficosVentas({ style, fechaInicio, fechaFin }) {
 
   useEffect(() => {
     if (data.length > 0) {
-      const maxPropsIndex = data.reduce((maxIndex, currentObj, currentIndex) => {
-        const propsCount = Object.keys(currentObj).length;
-        return propsCount > Object.keys(data[maxIndex]).length ? currentIndex : maxIndex;
-      }, 0);
-
+      const maxPropsIndex = data.reduce(
+        (maxIndex, currentObj, currentIndex) => {
+          const propsCount = Object.keys(currentObj).length;
+          return propsCount > Object.keys(data[maxIndex]).length
+            ? currentIndex
+            : maxIndex;
+        },
+        0
+      );
 
       // Linear Chart
       let barsRoot = am5.Root.new("lineal");
@@ -145,8 +149,36 @@ function GraficosVentas({ style, fechaInicio, fechaFin }) {
   return (
     <>
       <div style={style} id="chartdiv" className={styles.container}>
-        <div id="lineal" className={styles.pie}></div>
-        <div id="pie" className={styles.pie}></div>
+        <div id="lineal" className={styles.pie}>
+          {!data.length > 0 ? (
+            <p
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              Sin ventas este mes
+            </p>
+          ) : null}
+        </div>
+        <div id="pie" className={styles.pie}>
+          {!data.length > 0 ? (
+            <p
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              Sin ventas este mes
+            </p>
+          ) : null}
+        </div>
       </div>
     </>
   );

@@ -17,14 +17,14 @@ function Users() {
   useEffect(() => {
     try {
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/dashboard/users`, {
+        .get(`${process.env.REACT_APP_API_URL}/api/users`, {
           headers: {
             Authorization: `Bearer ${token} `,
           },
         })
         .then((res) => {
           if (res.data.length === 0) return;
-          setUsers(res?.data);
+          setUsers(res?.data.data);
         })
         .catch((error) => {
           console.log(error);
@@ -60,7 +60,7 @@ function Users() {
       };
       if (token) {
         axios
-          .post(`${process.env.REACT_APP_API_URL}/api/edit/user`, data, {
+          .patch(`${process.env.REACT_APP_API_URL}/api/users/${data._id}`, data, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -83,7 +83,7 @@ function Users() {
       };
       if (token) {
         axios
-          .post(`${process.env.REACT_APP_API_URL}/api/register/user`, data, {
+          .post(`${process.env.REACT_APP_API_URL}/api/users`, data, {
             headers: {
               Authorization: `Bearer ${token}`,
             },

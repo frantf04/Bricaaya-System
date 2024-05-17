@@ -14,6 +14,7 @@
   /* overflow: hidden; */
   font-size: max(12px, .87vw);
   /* border: 1px solid; */
+  font-weight: 500;
 }
 
 .link.active,
@@ -33,6 +34,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: none;
+  /* border: 1px solid red; */
+  padding-left: 10px;
+
+}
+
+.link span .link{
+  font-size: .9rem;
+  font-weight: initial;
 
 }
 
