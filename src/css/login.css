@@ -22,16 +22,13 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  line-height: 1.6;
-}
+
 
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   min-height: 100vh;
   padding: 20px;
   background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
