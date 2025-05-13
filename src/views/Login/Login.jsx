@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import axios from "axios"
-import "./login-styles.css"
+import "../../css/login.css"
 import cookie from "js-cookie"
 
 // Alert component included in the same file to avoid import issues
