@@ -12,6 +12,7 @@
 /build
 /server
 # misc
+*.txt
 .DS_Store
 .env.local
 .env.development.local
